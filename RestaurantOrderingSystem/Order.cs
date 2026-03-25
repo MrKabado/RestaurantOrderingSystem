@@ -18,26 +18,13 @@ namespace RestaurantOrderingSystem
 
         public void AddItem()
         {
-            Console.Write("Enter item code: ");
-            string itemCode = Console.ReadLine();
+            MenuItem selectedItem = input.GetItemCode();
 
-            MenuItem selectedItem = menu.FindItemByCode(itemCode);
-            if (!validation.IsValidMenuChoice(itemCode))
-            {
-                Console.WriteLine("Item not found in the menu. Please try again.");
-                return;
-            }
-
-            Console.Write("Enter quantity: ");
-            int itemQuantity = int.Parse(Console.ReadLine());
-            if (!validation.IsValidQuantity(itemQuantity, 10))
-            {
-                
-            }
+            int itemQuantity = input.GetItemQuantity();
 
             Items.Add(new OrderItem
             {
-                ItemCode = itemCode,
+                ItemCode = selectedItem.Code,
                 ItemName = selectedItem.Name,
                 Quantity = itemQuantity,
                 Price = selectedItem.Price,

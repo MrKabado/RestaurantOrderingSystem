@@ -9,14 +9,14 @@ namespace RestaurantOrderingSystem
 		private Menu menu;
 		private Validation valid;
 		
-		public Inputs(Menu menu, Validation valid)
+		public Inputs(Menu menu, Validation valid) //constructor with arguments received from program
 		{
 			this.menu = menu;
 			this.valid = valid;
 		}
 
 
-		public string GetValidName()
+		public string GetValidName() //method for getting the name
 		{
 			while (true)
 			{
@@ -38,7 +38,7 @@ namespace RestaurantOrderingSystem
 			}
 		}
 
-		public string GetValidContact()
+		public string GetValidContact() //method for getting the contact
 		{
 			while (true)
 			{

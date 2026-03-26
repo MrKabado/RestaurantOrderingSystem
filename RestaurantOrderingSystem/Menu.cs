@@ -17,7 +17,7 @@ namespace RestaurantOrderingSystem
 			new DrinkItem { Code = "D3", Name = "Water", Price = 10 },
 		};
 
-		public void GetMenuDisplay()
+		public void GetMenuDisplay() //show menu
 		{
 			string display = "Menu:\n";
 

@@ -36,4 +36,4 @@ public class Validation
 		IsCancelled = true;
 		Console.WriteLine("\nOrder cancelled.\n");
 	}
-} 
+}

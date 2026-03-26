@@ -13,7 +13,8 @@ namespace RestaurantOrderingSystem
 			Order order = new Order(menu, inputs);
 			Receipt receipt = new Receipt(order);
 
-			Console.WriteLine("Welcome to the Restaurant Ordering System!\n");
+			Console.WriteLine("Welcome to the Restaurant Ordering System!");
+			Console.WriteLine("Type 0 to cancel the order\n");
 
 			menu.GetMenuDisplay();
 

@@ -8,6 +8,8 @@ public class Validation
 	{
 	}
 
+	public bool IsCancelled { get; set; }
+
 	public bool IsValidMenuChoice (string choice)
 	{
 		string[] menuChoice = { "F1", "F2", "F3", "D1", "D2", "D3" };
@@ -21,11 +23,17 @@ public class Validation
 
 	public bool IsValidName (string name)
 	{
-		return !string.IsNullOrWhiteSpace(name) && name.All(c => char.IsLetter(c) || c == ' ');
+		return !string.IsNullOrWhiteSpace(name) && name.All(c => char.IsLetter(c));
 	}
 
 	public bool IsValidNumber (string number)
 	{
 		return !string.IsNullOrWhiteSpace(number) && number.All(c => char.IsDigit(c));
+	}
+
+	public void CancelOrder()
+	{
+		IsCancelled = true;
+		Console.WriteLine("\nOrder cancelled.\n");
 	}
 } 

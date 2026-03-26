@@ -5,12 +5,16 @@ namespace RestaurantOrderingSystem
 {
 	public class Inputs
 	{
-		public Inputs()
+
+		private Menu menu;
+		private Validation valid;
+		
+		public Inputs(Menu menu, Validation valid)
 		{
+			this.menu = menu;
+			this.valid = valid;
 		}
 
-		private Validation valid = new Validation();
-		private Menu menu;
 
 		public string GetValidName()
 		{
@@ -21,7 +25,7 @@ namespace RestaurantOrderingSystem
 
 				if (input == "0") //break the loop if meet the condition
 				{
-					Console.WriteLine("Order cancelled.");
+					valid.CancelOrder();
 					return null;
 				}
 
@@ -43,7 +47,7 @@ namespace RestaurantOrderingSystem
 
 				if (input == "0") //break the loop if meet the condition
 				{
-					Console.WriteLine("Order Cancelled");
+					valid.CancelOrder();
 					return null;
 				}
 
@@ -67,7 +71,7 @@ namespace RestaurantOrderingSystem
 
 				if (input == "0") //break the loop if meet the condition
 				{
-					Console.WriteLine("Order Cancelled");
+					valid.CancelOrder();
 					return null;
 				}
 
@@ -89,7 +93,7 @@ namespace RestaurantOrderingSystem
 
 				if (input == 0) //break the loop if meet the condition
 				{
-					Console.WriteLine("Order Cancelled");
+					valid.CancelOrder();
 					return 0;
 				}
 

@@ -8,19 +8,22 @@ namespace RestaurantOrderingSystem
         public Customer Customer { get; set; }
 
         private Menu menu;
-        private Validation validation = new Validation();
-        public Inputs input = new Inputs();
-
-        public Order(Menu menu)
+        private Inputs input;
+ 
+        public Order(Menu menu, Inputs input)
 		{
             this.menu = menu;
+            this.input = input;
         }
 
         public void AddItem()
         {
             MenuItem selectedItem = input.GetItemCode();
+            if (selectedItem == null) return;
 
             int itemQuantity = input.GetItemQuantity();
+            if (itemQuantity == 0) return;
+
 
             Items.Add(new OrderItem
             {
@@ -48,6 +51,7 @@ namespace RestaurantOrderingSystem
             Customer = new Customer();
 
             Customer.Name = input.GetValidName();
+            if (Customer.Name == null) return;
 
             Customer.ContactNumber = input.GetValidContact();
         }

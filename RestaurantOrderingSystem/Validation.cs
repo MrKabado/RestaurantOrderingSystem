@@ -9,6 +9,7 @@ public class Validation
 	}
 
 	public bool IsCancelled { get; set; }
+	public bool IsOrderAgain { get; set; }
 
 	public bool IsValidMenuChoice (string choice)
 	{
@@ -16,8 +17,11 @@ public class Validation
 		return !string.IsNullOrEmpty(choice) && menuChoice.Any(c => c.Equals(choice, StringComparison.OrdinalIgnoreCase));
 	}
 
-	public bool IsValidQuantity (int qty, int max)
+	public bool IsValidQuantity(string input, int max)
 	{
+		if (!int.TryParse(input, out int qty))
+			return false;
+
 		return qty > 0 && qty < max;
 	}
 
@@ -35,5 +39,11 @@ public class Validation
 	{
 		IsCancelled = true;
 		Console.WriteLine("\nOrder cancelled.\n");
+	}
+
+	public void OrderAgain()
+	{
+		IsOrderAgain = true;
+		Console.WriteLine("\nOrder Again. \n");
 	}
 }

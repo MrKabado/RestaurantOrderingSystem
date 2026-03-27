@@ -89,9 +89,9 @@ namespace RestaurantOrderingSystem
 			while (true)
 			{
 				Console.Write("Enter item quantity: ");
-				int input = int.Parse(Console.ReadLine());
+				string input = Console.ReadLine();
 
-				if (input == 0) //break the loop if meet the condition
+				if (input == "0") //break the loop if meet the condition
 				{
 					valid.CancelOrder();
 					return 0;
@@ -99,7 +99,7 @@ namespace RestaurantOrderingSystem
 
 				if (valid.IsValidQuantity(input, 10))
 				{
-					return input;
+					return int.Parse(input);
 				}
 
 				Console.WriteLine("Quantity invalid. (0) to cancel.");

@@ -10,23 +10,30 @@ namespace RestaurantOrderingSystem
 			Validation valid = new Validation();
 
 			Inputs inputs = new Inputs(menu, valid);
-			Order order = new Order(menu, inputs);
+			Order order = new Order(menu, inputs, valid);
 			Receipt receipt = new Receipt(order);
 
-			Console.WriteLine("Welcome to the Restaurant Ordering System!");
-			Console.WriteLine("Type 0 to cancel the order\n");
+			valid.IsOrderAgain = true;
+			while (valid.IsOrderAgain)
+			{
+				Console.WriteLine("Welcome to the Restaurant Ordering System!");
+				Console.WriteLine("Type 0 to cancel the order\n");
 
-			menu.GetMenuDisplay();
+				menu.GetMenuDisplay();
 
-			order.AddItem();
-			if (valid.IsCancelled == true) return;
+				order.AddItem();
+				if (valid.IsCancelled == true) return;
 
-			order.OrderAgain();
+				order.AddAgain();
 
-			order.GetCustomerInfo();
-			if (valid.IsCancelled == true) return;
+				order.GetCustomerInfo();
+				if (valid.IsCancelled == true) return;
 
-			receipt.PrintReceipt();
+				receipt.PrintReceipt();
+
+				//ask if want to order again
+				order.OrderAgain();
+			} 
 		}
 	}
 }

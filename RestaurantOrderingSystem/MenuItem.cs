@@ -2,20 +2,17 @@
 
 namespace RestaurantOrderingSystem
 {
-	public class MenuItem
+	public abstract class MenuItem
 	{
 		public string Code { get; set; }
 		public string Name { get; set; }
 		public double Price { get; set; }
 
-		public virtual string GetCategory()
-		{
-			return "General";
-		}
+		public abstract string GetCategory();
 
 		public string GetDisplayText()
 		{
-			return $"{Name} ({GetCategory()}) - PHP {Price}";
+			return $"{Name} - PHP {Price}";
 
 		}
 	}

@@ -9,11 +9,13 @@ namespace RestaurantOrderingSystem
 
         private Menu menu;
         private Inputs input;
+        private Validation valid;
  
-        public Order(Menu menu, Inputs input)
+        public Order(Menu menu, Inputs input, Validation valid)
 		{
             this.menu = menu;
             this.input = input;
+            this.valid = valid;
         }
 
         public void AddItem()
@@ -35,14 +37,14 @@ namespace RestaurantOrderingSystem
 
         }
 
-        public void OrderAgain()
+        public void AddAgain()
         {
-            Console.Write("\nDo you want to order again? (Y/N): ");
+            Console.Write("\nDo you want to add item again? (Y/N): ");
             string response = Console.ReadLine();
             if (response.Equals("Y", StringComparison.OrdinalIgnoreCase))
             {
                 AddItem();
-                OrderAgain();
+				AddAgain();
 			}
 		}
 
@@ -54,6 +56,19 @@ namespace RestaurantOrderingSystem
             if (Customer.Name == null) return;
 
             Customer.ContactNumber = input.GetValidContact();
+        }
+
+        public void OrderAgain()
+        {
+            Console.Write("\nDo you want to order again? (Y/N): ");
+            string response = Console.ReadLine();
+            if (response.Equals("Y", StringComparison.OrdinalIgnoreCase))
+            {
+                valid.OrderAgain();
+            } else
+            {
+                valid.IsOrderAgain = false;
+            }
         }
     }
 }

@@ -17,9 +17,9 @@ namespace RestaurantOrderingSystem
 		}
 	}
 
-	public class FoodItem : MenuItem
+	public class FoodItem : MenuItem //inherit
 	{
-		public override string GetCategory()
+		public override string GetCategory() //polymorphism
 		{
 			return "Food";
 		}

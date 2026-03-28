@@ -68,6 +68,7 @@ namespace RestaurantOrderingSystem
             } else
             {
                 valid.IsOrderAgain = false;
+                Console.WriteLine("Thank you for ordering! Enjoy your meal :)");
             }
         }
     }

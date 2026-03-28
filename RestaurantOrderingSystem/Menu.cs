@@ -12,9 +12,11 @@ namespace RestaurantOrderingSystem
 			new FoodItem { Code = "F2", Name = "Pizza", Price = 100 },
 			new FoodItem { Code = "F3", Name = "Fries", Price = 40 },
 
+
 			new DrinkItem { Code = "D1", Name = "Coke", Price = 20 },
 			new DrinkItem { Code = "D2", Name = "Juice", Price = 15 },
 			new DrinkItem { Code = "D3", Name = "Water", Price = 10 },
+
 		};
 
 		public void GetMenuDisplay() //show menu

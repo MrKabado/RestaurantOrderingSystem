@@ -5,7 +5,6 @@ namespace RestaurantOrderingSystem
 {
 	public class Inputs
 	{
-
 		private Menu menu;
 		private Validation valid;
 		
